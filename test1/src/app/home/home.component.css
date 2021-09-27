@@ -1,0 +1,43 @@
+#s2{
+  margin-left: 1230px;
+  margin-top: 1px;
+}
+#s3{
+    padding-left: 960px;
+}
+
+#j1{
+  margin-left: 20%;
+}
+
+
+.label {
+  color: white;
+  padding: 7px;
+}
+.other {background-color: #f8f8f8; color: black;}
+
+
+label {
+  font: 1rem 'Fira Sans', sans-serif;
+}
+
+#b1,#b2,#b3,#b4,#b5,#b6,#b7{
+  width:20px;
+  height:20px;
+}
+#h2{
+  height: 100px;
+  margin: auto;
+  width: 92%;
+  margin-top: 50px;
+  margin-left: 5%;
+  background-color: rgb(222, 229, 230);
+}
+#principal{
+  height: 100%;
+    width: 95%;
+    margin: auto;
+  background-color: rgb(177, 184, 185);
+}
+

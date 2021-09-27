@@ -1,0 +1,247 @@
+<table id="principal">
+   <tr><td>
+      <table id="h2" bgborder="1">
+            <tr><td><div class="d-grid gap-2" ><button class="btn btn-primary" type="button" (click)="model2 = today" id="j1">Aujourd'hui</button></div></td>
+               <td align="right"><span class="label other" id="j2">Date entre</span></td>
+               <td><span id="j3">
+                  <div class="row">
+                     <div class="col-6">
+                        <form class="form-inline">
+                           <div class="form-group">
+                           <div class="input-group">
+                          <input class="form-control" placeholder="dd/mm/yyyy"
+                                 name="d2" #c2="ngModel" [(ngModel)]="model2" ngbDatepicker #d2="ngbDatepicker">
+                           <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"></button>
+                           </div>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+                  
+               </span></td>
+               <td align="right"><span class="label other">et</span></td>
+               <td><span>
+                  <div class="row">
+                    <div class="col-6">
+                      <form class="form-inline">
+                        <div class="form-group">
+                          <div class="input-group">
+                            <input class="form-control" placeholder="dd/mm/yyyy"
+                                   name="d1" #c1="ngModel" [(ngModel)]="model1" ngbDatepicker #d1="ngbDatepicker">
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"></button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  
+                  </div>
+                  </span></td>
+               <td></td>
+            </tr>
+      </table>
+   </td></tr>
+      <br>
+<tr><td>
+<ngb-accordion #a="ngbAccordion" activeIds="custom-panel-1">
+   <ngb-panel>
+     <ng-template ngbPanelHeader>
+      <div>
+         <table>
+         <tr><td>
+         <button ngbPanelToggle class="btn btn-sm btn-outline-primary ml-1">=</button> </td><td>&nbsp;&nbsp;&nbsp;</td>
+            <td><div class="d-flex align-items-center justify-content-between">
+               <h5 class="m-0">Jours ouvrables</h5>
+             </div></td></tr>
+         </table>
+     </div>
+     </ng-template>
+     <ng-template ngbPanelContent>
+     
+      <table>
+         <tr><td>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="a1" id="b1">&nbsp;&nbsp;&nbsp;</td><td><label id="c1">Lundi</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         </td><td><input type="checkbox" name="a2" id="b2"></td>&nbsp;&nbsp;&nbsp;<td><label id="c2">Mardi</label></td>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <td><input type="checkbox" name="a3" id="b3"></td>&nbsp;&nbsp;&nbsp;<td><label id="c3">Mercredi</label></td>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <td><input type="checkbox" name="a4" id="b4"></td>&nbsp;&nbsp;&nbsp;<td><label id="c4">Jeudi</label></td>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <td><input type="checkbox" name="a5" id="b5"></td>&nbsp;&nbsp;&nbsp;<td><label id="c5">Vendredi</label></td>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <td><input type="checkbox" name="a6" id="b6"></td>&nbsp;&nbsp;&nbsp;<td><label id="c6">Samedi</label></td>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <td><input type="checkbox" name="a7" id="b7"></td>&nbsp;&nbsp;&nbsp;<td><label id="c7">Dimanche</label></td></tr>
+      </table>
+
+     </ng-template>
+   </ngb-panel>
+
+   <ngb-panel>
+      <ng-template ngbPanelHeader>
+         <div>
+            <table>
+               <tr><td>
+                  <button ngbPanelToggle class="btn btn-sm btn-outline-primary ml-1">=</button> </td><td>&nbsp;&nbsp;&nbsp;</td>
+                  <td><div class="d-flex align-items-center justify-content-between">
+                     <h5 class="m-0">Jours fériés</h5>
+                     </div></td>
+                  <td> 
+                        <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                        <button class="btn btn-primary" id="s2"(click)="onOpenModal(null, 'add')">+<span class="sr-only">(current)</span></button>
+                        </li>
+                        </ul>
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </ng-template>
+      <ng-template ngbPanelContent>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        
+          <br>
+          <br>
+          <div class="container" id="main-container">
+          <div class="row">
+            
+          </div>
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <td align="center">Jour férié</td>
+              <td align="center">Date</td>
+              <td align="center">Action</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let employee of employees">
+              <td align="center">{{employee?.name}}</td>
+              <td align="center">{{employee?.email}}</td>
+              <td align="center">
+                        <a (click)="onOpenModal(employee, 'edit')" class="btn btn-success tooltips" data-placement="top" data-original-title="Edit" align="center"><i class="fa fa-pencil" align="center"></i> </a>
+                        <a (click)="onOpenModal(employee, 'delete')" class="btn btn-danger tooltips" data-placement="top" data-original-title="Delete"align="center"><i class="fa fa-times" align="center"></i></a>
+
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+
+          <!-- Add Employee Modal -->
+          <div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                 <div class="modal-header">
+                    <h5 class="modal-title" id="addEmployeeModalLabel">Ajout d'un jour férié</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                 </div>
+                 <div class="modal-body">
+                    <form #addForm="ngForm" (ngSubmit)="onAddEmloyee(addForm)">
+                    <div class="form-group">
+                       <label for="name">Nom Jour Férier</label>
+                       <input type="text" ngModel name="name" class="form-control" id="name" placeholder="Name" required>
+                    </div>
+                    <!--<div class="form-group">
+                     <label for="email">Date</label>
+                     <input type="email" ngModel name="email" class="form-control" id="email" placeholder="date ..." required>
+                  </div>-->
+                
+                   
+                 <div class="form-group">
+                     <label for="email">Date</label>
+                    <div class="row">
+                     <div class="col-6">
+                        <input type="date" 
+                        value="2020/01/01"
+                        min="2000/01/01" max="3000/01/01" ngModel name="email" class="form-control" id="email">  
+                     </div>
+                    </div>
+                   </div>
+
+
+                    <div class="modal-footer">
+                       <button type="button" id="add-employee-form" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                       <button [disabled]="addForm.invalid" type="submit" class="btn btn-success" >Ajouter</button>
+                    </div>
+                    </form>
+                 </div>
+              </div>
+            </div>
+            </div>
+          
+          <!-- Edit Modal -->
+          <div class="modal fade" id="updateEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="updateEmployeeModalLabel">Modifier un jour férié {{editEmployee?.name}}</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                     </button>
+                  </div>
+                  <div class="modal-body">
+                     <form #editForm="ngForm">
+                        <div class="form-group">
+                           <label for="name">Nom Jour Férier</label>
+                           <input type="text" ngModel="{{editEmployee?.name}}" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name">
+                        </div>
+                        <input type="hidden" ngModel="{{editEmployee?.id}}" name="id" class="form-control" id="id" placeholder="Email">
+                        <input type="hidden" ngModel="{{editEmployee?.employeeCode}}" name="userCode" class="form-control" id="userCode" placeholder="date ...">
+                        <div class="form-group">
+                           <label for="email">Date</label>
+                           <div class="col-6">
+                              <input type="date" 
+                              value="2020/01/01"
+                              min="2000/01/01" max="3000/01/01" ngModel name="email" class="form-control" id="email">  
+                           </div>
+                        </div>
+                       
+                        <div class="modal-footer">
+                           <button type="button" id="" data-dismiss="modal" class="btn btn-danger">Annuler</button>
+                           <button (click)="onUpdateEmloyee(editForm.value)" data-dismiss="modal" class="btn btn-success" >Modifier</button>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+          </div>
+          
+          <!-- Delete Modal -->
+          <div class="modal fade" id="deleteEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="deleteModelLabel">Supprimer Date</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                     </button>
+                  </div>
+                  <div class="modal-body">
+                     <p>Êtes-vous sûr de vouloir supprimer date {{deleteEmployee?.name}}?</p>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Non</button>
+                        <button  class="btn btn-success" (click)="onDeleteEmloyee(deleteEmployee?.id); $event.stopPropagation()" data-dismiss="modal">oui</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+          </div>
+          </div>
+        
+      </ng-template>
+    </ngb-panel>
+ </ngb-accordion>
+</td></tr>
+</table>
+
+
+
